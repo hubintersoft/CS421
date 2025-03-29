@@ -189,14 +189,18 @@ class SubjectListView(APIView):
         
         return Response(response_data, status=status.HTTP_201_CREATED)
 
-    
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Program, Student, Enrollment
+
 class SoftwareEngineeringStudentsCoursesView(APIView):
     def get(self, request):
         """
-        Retrieve all students enrolled in the Software Engineering program (program_id=1),
+        Retrieve the student with student_id=1 enrolled in the Software Engineering program (program_id=1),
         along with their courses arranged by academic year and semester.
         """
-        # Fetch the Software Engineering program using its fixed program_id
+        # Validate if the Software Engineering program exists
         try:
             software_engineering_program = Program.objects.get(program_id=1)
         except Program.DoesNotExist:
@@ -205,44 +209,99 @@ class SoftwareEngineeringStudentsCoursesView(APIView):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        # Query all students in the Software Engineering program
-        students = Student.objects.filter(program=software_engineering_program)
+        # Retrieve the specific student with student_id=1 under this program
+        try:
+            student = Student.objects.get(student_id=1, program=software_engineering_program)
+        except Student.DoesNotExist:
+            return Response(
+                {"error": "Student with ID 1 does not exist in the Software Engineering program."},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
-        # Organize the response
-        response_data = []
+        # Organize the student's course data
+        student_data = {
+            "student_name": student.student_name,
+            "program": software_engineering_program.program_name,
+            "courses": {}
+        }
 
-        for student in students:
-            student_data = {
-                "student_name": student.student_name,
-                "program": software_engineering_program.program_name,
-                "courses": {}
-            }
+        # Get all enrollments for the student
+        enrollments = Enrollment.objects.filter(student=student).select_related('course')
 
-            # Get all enrollments for the student
-            enrollments = Enrollment.objects.filter(student=student).select_related('course')
+        for enrollment in enrollments:
+            course = enrollment.course
+            year_key = f"Year {course.year}"
+            semester_key = f"Semester {course.semester}"
 
-            for enrollment in enrollments:
-                course = enrollment.course
-                year_key = f"Year {course.year}"
-                semester_key = f"Semester {course.semester}"
+            # Initialize year and semester keys if they don't exist
+            if year_key not in student_data["courses"]:
+                student_data["courses"][year_key] = {}
+            if semester_key not in student_data["courses"][year_key]:
+                student_data["courses"][year_key][semester_key] = []
 
-                # Initialize year and semester keys if they don't exist
-                if year_key not in student_data["courses"]:
-                    student_data["courses"][year_key] = {}
-                if semester_key not in student_data["courses"][year_key]:
-                    student_data["courses"][year_key][semester_key] = []
+            # Append course details to the corresponding year and semester
+            student_data["courses"][year_key][semester_key].append({
+                "course_id": course.course_id,
+                "course_name": course.course_name
+            })
 
-                # Append course details to the corresponding year and semester
-                student_data["courses"][year_key][semester_key].append({
-                    "course_id": course.course_id,
-                    "course_name": course.course_name
-                })
+        # Return structured response with only the student_id=1 data
+        return Response(student_data, status=status.HTTP_200_OK)
 
-            # Add the student's data to the response
-            response_data.append(student_data)
+    
+# class SoftwareEngineeringStudentsCoursesView(APIView):
+#     def get(self, request):
+#         """
+#         Retrieve all students enrolled in the Software Engineering program (program_id=1),
+#         along with their courses arranged by academic year and semester.
+#         """
+#         # Fetch the Software Engineering program using its fixed program_id
+#         try:
+#             software_engineering_program = Program.objects.get(program_id=1)
+#         except Program.DoesNotExist:
+#             return Response(
+#                 {"error": "The Software Engineering program does not exist."},
+#                 status=status.HTTP_404_NOT_FOUND
+#             )
 
-        # Return the structured response
-        return Response(response_data, status=status.HTTP_200_OK)
+#         # Query all students in the Software Engineering program
+#         students = Student.objects.filter(program=software_engineering_program)
+
+#         # Organize the response
+#         response_data = []
+
+#         for student in students:
+#             student_data = {
+#                 "student_name": student.student_name,
+#                 "program": software_engineering_program.program_name,
+#                 "courses": {}
+#             }
+
+#             # Get all enrollments for the student
+#             enrollments = Enrollment.objects.filter(student=student).select_related('course')
+
+#             for enrollment in enrollments:
+#                 course = enrollment.course
+#                 year_key = f"Year {course.year}"
+#                 semester_key = f"Semester {course.semester}"
+
+#                 # Initialize year and semester keys if they don't exist
+#                 if year_key not in student_data["courses"]:
+#                     student_data["courses"][year_key] = {}
+#                 if semester_key not in student_data["courses"][year_key]:
+#                     student_data["courses"][year_key][semester_key] = []
+
+#                 # Append course details to the corresponding year and semester
+#                 student_data["courses"][year_key][semester_key].append({
+#                     "course_id": course.course_id,
+#                     "course_name": course.course_name
+#                 })
+
+#             # Add the student's data to the response
+#             response_data.append(student_data)
+
+#         # Return the structured response
+#         return Response(response_data, status=status.HTTP_200_OK)
     
   
  
