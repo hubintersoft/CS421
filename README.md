@@ -40,3 +40,42 @@ Execution: Copies only changes made since the last backup, whether full or incre
 Advantages: Requires the least storage space and time to execute, especially after a full backup.
 Disadvantages: Restoration can take longer as all incremental backups from the full backup point need to be applied. 
 
+Scripts Overview
+
+health_check.sh
+Purpose: Monitors server resources and API endpoints to ensure everything is running properly
+Features:
+  - Checks CPU, memory, and disk usage
+  - Verifies web server status
+  - Tests API endpoints functionality
+  - Logs results with timestamps
+  - Warns about critical conditions
+
+backup_api.sh
+Purpose: Creates regular backups of the API codebase and database
+Features:
+  - Compresses project files into tar.gz archive
+  - Exports database to SQL file
+  - Maintains a 7-day retention policy
+  - Logs backup activities
+
+update_server.sh
+Purpose: Keeps the server and API up-to-date
+Features:
+  - Updates system packages
+  - Pulls latest code from GitHub
+  - Updates dependencies
+  - Applies database migrations
+  - Restarts services as needed
+  - Logs all actions
+
+Dependencies
+- curl (for API endpoint checks)
+- MySQL (for database backups)
+- git (for code updates)
+- Python virtual environment (for API dependencies)
+
+Setup Instructions
+1. Clone the repository to your server
+2. Make scripts executable: `chmod +x *.sh`
+3. Set up cron jobs as needed
