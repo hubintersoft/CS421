@@ -2,9 +2,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import FilterStudentsView, ProgramListView, SoftwareEngineeringStudentsCoursesView, StudentListView, SubjectListView
+from .views import FilterStudentsView, ProgramListView, SoftwareEngineeringStudentsCoursesView, StudentListView, SubjectListView, home_view
 
 urlpatterns = [
+
+    path('', home_view, name='home'),
+
 
     path('programs/', ProgramListView.as_view(), name='programs-list'),
     path('students/list/', StudentListView.as_view(), name='students-list'),
@@ -15,6 +18,7 @@ urlpatterns = [
 
     # path('subjects/filter/', FilterSubjectsView.as_view(), name='filter-subjects'),
     # path('students/<str:student_id>/subjects/', SubjectListViewByStudent.as_view(), name='student-subjects'),
+
 ]
 
 # Static file serving for passport images (media files)
