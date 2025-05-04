@@ -1,0 +1,91 @@
+student_db  | The files belonging to this database system will be owned by user "postgres".
+student_db  | This user must also own the server process.
+student_db  | 
+student_db  | The database cluster will be initialized with locale "en_US.utf8".
+student_db  | The default database encoding has accordingly been set to "UTF8".
+student_db  | The default text search configuration will be set to "english".
+student_db  | 
+student_db  | Data page checksums are disabled.
+student_db  | 
+student_db  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+student_db  | creating subdirectories ... ok
+student_db  | selecting dynamic shared memory implementation ... posix
+student_db  | selecting default max_connections ... 100
+student_db  | selecting default shared_buffers ... 128MB
+student_db  | selecting default time zone ... Etc/UTC
+student_db   | creating configuration files ... ok
+student_db   | running bootstrap script ... ok
+student_api  | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+student_api  | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+student_api  | [Sat May 03 20:22:44.809211 2025] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.54 (Debian) PHP/7.4.33 configured -- resuming normal operations
+student_api  | [Sat May 03 20:22:44.810083 2025] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+student_api  | 41.59.84.126 - - [03/May/2025:20:22:49 +0000] "GET / HTTP/1.1" 200 1022 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:22:51 +0000] "GET /api/students HTTP/1.1" 200 1326 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:23:04 +0000] "GET / HTTP/1.1" 200 1022 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:23:06 +0000] "GET /api/students HTTP/1.1" 200 1326 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:23:13 +0000] "GET /api/subjects HTTP/1.1" 200 1339 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 172.23.0.1 - - [03/May/2025:20:25:16 +0000] "GET /api/students HTTP/1.1" 200 3215 "-" "curl/8.5.0"
+student_api  | 41.59.84.126 - - [03/May/2025:20:28:26 +0000] "GET / HTTP/1.1" 200 1022 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:28:28 +0000] "GET /api/students HTTP/1.1" 200 222 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:29:02 +0000] "GET /api/students HTTP/1.1" 200 223 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:29:05 +0000] "GET /api/students HTTP/1.1" 200 222 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:29:09 +0000] "GET / HTTP/1.1" 200 1022 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:29:11 +0000] "GET /api/students HTTP/1.1" 200 222 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:29:58 +0000] "GET / HTTP/1.1" 200 1022 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:30:01 +0000] "GET /api/students HTTP/1.1" 200 867 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 41.59.84.126 - - [03/May/2025:20:30:19 +0000] "GET /api/subjects HTTP/1.1" 200 2407 "http://13.61.73.230/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+student_api  | 147.185.132.115 - - [03/May/2025:20:35:58 +0000] "GET / HTTP/1.0" 200 1894 "-" "Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com"
+student_api  | 196.251.70.87 - - [03/May/2025:20:42:33 +0000] "GET /.git/index HTTP/1.1" 200 28890 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-us) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
+student_db   | performing post-bootstrap initialization ... ok
+student_db   | syncing data to disk ... ok
+student_db   | 
+student_db   | 
+student_db   | Success. You can now start the database server using:
+student_db   | 
+student_db   |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+student_db   | 
+student_db   | initdb: warning: enabling "trust" authentication for local connections
+student_db   | You can change this by editing pg_hba.conf or using the option -A, or
+student_db   | --auth-local and --auth-host, the next time you run initdb.
+student_db   | waiting for server to start....2025-05-03 20:22:45.387 UTC [47] LOG:  starting PostgreSQL 13.20 (Debian 13.20-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+student_db   | 2025-05-03 20:22:45.391 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+student_db   | 2025-05-03 20:22:45.405 UTC [48] LOG:  database system was shut down at 2025-05-03 20:22:45 UTC
+student_db   | 2025-05-03 20:22:45.413 UTC [47] LOG:  database system is ready to accept connections
+student_db   |  done
+student_db   | server started
+student_db   | CREATE DATABASE
+student_db   | 
+student_db   | 
+student_db   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+student_db   | 
+student_db   | waiting for server to shut down...2025-05-03 20:22:45.621 UTC [47] LOG:  received fast shutdown request
+student_db   | .2025-05-03 20:22:45.624 UTC [47] LOG:  aborting any active transactions
+student_db   | 2025-05-03 20:22:45.628 UTC [47] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+student_db   | 2025-05-03 20:22:45.628 UTC [49] LOG:  shutting down
+student_db   | 2025-05-03 20:22:45.649 UTC [47] LOG:  database system is shut down
+student_db   |  done
+student_db   | server stopped
+student_db   | 
+student_db   | PostgreSQL init process complete; ready for start up.
+student_db   | 
+student_db   | 2025-05-03 20:22:45.752 UTC [1] LOG:  starting PostgreSQL 13.20 (Debian 13.20-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+student_db   | 2025-05-03 20:22:45.752 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+student_db   | 2025-05-03 20:22:45.752 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+student_db   | 2025-05-03 20:22:45.759 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+student_db   | 2025-05-03 20:22:45.767 UTC [62] LOG:  database system was shut down at 2025-05-03 20:22:45 UTC
+student_db   | 2025-05-03 20:22:45.775 UTC [1] LOG:  database system is ready to accept connections
+student_db   | 2025-05-03 20:22:51.339 UTC [70] ERROR:  relation "students" does not exist at character 15
+student_db   | 2025-05-03 20:22:51.339 UTC [70] STATEMENT:  SELECT *
+student_db   | 	FROM "students"
+student_db   | 	 LIMIT 10
+student_db   | 2025-05-03 20:23:06.237 UTC [72] ERROR:  relation "students" does not exist at character 15
+student_db   | 2025-05-03 20:23:06.237 UTC [72] STATEMENT:  SELECT *
+student_db   | 	FROM "students"
+student_db   | 	 LIMIT 10
+student_db   | 2025-05-03 20:23:13.251 UTC [73] ERROR:  relation "subjects" does not exist at character 44
+student_db   | 2025-05-03 20:23:13.251 UTC [73] STATEMENT:  SELECT "course_name", "academic_year"
+student_db   | 	FROM "subjects"
+student_db   | 2025-05-03 20:25:16.654 UTC [77] ERROR:  relation "students" does not exist at character 15
+student_db   | 2025-05-03 20:25:16.654 UTC [77] STATEMENT:  SELECT *
+student_db   | 	FROM "students"
+student_db   | 	 LIMIT 10
