@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: studentsubjectapi
+      MYSQL_USER: studentadmin
+      MYSQL_PASSWORD: Tinah-2018
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  web:
+    build: .
+    command: gunicorn studentsubjectapi.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=studentsubjectapi
+      - DB_USER=studentadmin
+      - DB_PASSWORD=Tinah-2018
+
+volumes:
+  db_data:
