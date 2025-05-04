@@ -6,12 +6,16 @@ Features
 Endpoint 1 (/api/students):
 MODIFIED LINK: http://ec2-51-20-63-133.eu-north-1.compute.amazonaws.com/api/students/
 
+NEW LINK: http://ec2-13-53-136-131.eu-north-1.compute.amazonaws.com:8000/api/students/
+
 Returns a JSON response with 10+ student records, including name and enrolled_program.
 
 Uses Django ORM models and DRF serializers.
 
 Endpoint 2 (/api/subjects):
 MODIFIED LINK: http://ec2-51-20-63-133.eu-north-1.compute.amazonaws.com/api/subjects/
+NEW LINK:
+http://ec2-13-53-136-131.eu-north-1.compute.amazonaws.com:8000/api/subjects/
 
 Returns a structured JSON list of subjects in the Software Engineering program, grouped by academic year (Year 1–4).
 
